@@ -1,0 +1,41 @@
+name: Bot Pencari Kerja Otomatis
+
+on:
+  schedule:
+ 
+    - cron: '0 0 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  cari-kerja:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  
+
+    steps:
+      - name: Ambil Kode dari Repo
+        uses: actions/checkout@v4
+
+      - name: Siapkan Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Library (Daftar Belanja)
+        run: |
+          pip install -r requirements.txt
+
+      - name: Jalankan Bot
+        env:
+          TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
+          ID_CHAT: ${{ secrets.ID_CHAT }}
+        run: python belajar19.py  
+
+      - name: Simpan Ingatan Bot (Update Database)
+        run: |
+          git config --global user.name "Bot Pencari Kerja"
+          git config --global user.email "bot@github.com"
+          git add *.db
+          git commit -m "Update database loker [skip ci]" || echo "Tidak ada loker baru"
+          git push
