@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 TOKEN_BOT = os.environ.get("TOKEN_BOT")
 if not TOKEN_BOT:
-    TOKEN_BOT = "8229915508:AAHPlilEvzoPcDYusI2vKTxPeXFk5pWtG0A" 
+    TOKEN_BOT = "8229915508:AAEBdFGimPUKYBR0FMHnaejnb2NpXb1PqF0" 
 ID_CHAT = os.environ.get("ID_CHAT")
 if not ID_CHAT:    
     ID_CHAT = "1180963687"
