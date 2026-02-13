@@ -45,7 +45,7 @@ cursor.execute(""" CREATE TABLE IF NOT EXISTS loker (
 """)
 conn.commit()
 
-url = "https://www.loker.id/cari-lowongan-kerja?q=perpustakaan+HR+data"
+url = "https://www.loker.id/cari-lowongan-kerja?q=perpustakaan+HR+data+document"
 response = requests.get(url)
 # print(response.text)
 
